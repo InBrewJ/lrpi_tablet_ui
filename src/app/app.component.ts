@@ -3,6 +3,7 @@ import { SettingsService } from "./pages/services/settings.service";
 import { GetTracksService } from "./pages/services/get-tracks.service";
 import { forkJoin } from "rxjs";
 import { PairingService } from "./pages/services/pairing.service";
+import { AdminService } from "./pages/services/admin.service";
 
 @Component({
   selector: "app-root",
@@ -19,13 +20,15 @@ export class AppComponent implements OnInit {
   masterIp: string;
   slaved: boolean = false;
   pairingInProgress: boolean = false;
+  rebootInProgress: boolean = false;
   unPairingInProgress: boolean = false;
   pairingError: boolean = false;
 
   constructor(
     private settingsService: SettingsService,
     private tracksService: GetTracksService,
-    private pairingService: PairingService
+    private pairingService: PairingService,
+    private adminService: AdminService
   ) {}
 
   ngOnInit() {
@@ -85,6 +88,13 @@ export class AppComponent implements OnInit {
         this.unPairingInProgress = false;
         this.partyModeActive = false;
       }
+    });
+  }
+
+  reboot() {
+    this.rebootInProgress = true;
+    this.adminService.reboot().subscribe((res: any) => {
+      // there will be no response from the reboot service...
     });
   }
 }

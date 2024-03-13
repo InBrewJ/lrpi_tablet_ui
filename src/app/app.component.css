@@ -27,3 +27,9 @@ p.slave-prompt {
     float: right;
     padding-right: 1em;
 }
+
+.reboot-button button {
+    float: right;
+    margin-right: 1.3em;
+    font-size: 110%;
+}

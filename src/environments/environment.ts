@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  hostname: "192.168.1.84",
+  hostname: "gandalf.local",
 };
 
 /*

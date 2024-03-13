@@ -7,6 +7,12 @@
   >
     <button mat-stroked-button class="btn">pair</button>
   </span>
+  <span class="reboot-button" (click)="reboot()">
+    <button mat-stroked-button class="btn">&#9888; reboot &#9888;</button>
+  </span>
+  <span *ngIf="rebootInProgress" class="pair-button">
+    [ Rebooting, please wait 5 minutes then refresh... ]
+  </span>
   <span class="pair-button" (click)="!unPairingInProgress && unpair()">
     <button mat-stroked-button class="btn" *ngIf="partyModeActive">
       unpair
